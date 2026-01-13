@@ -1,0 +1,7 @@
+{
+  "name": "FieldTrack Pro",
+  "description": "A professional field work tracking application for logging client visits, capturing location data, and managing follow-ups.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
