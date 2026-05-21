@@ -2,6 +2,7 @@
 import React from 'react';
 import Header from './components/Header';
 import AdminDashboard from './components/AdminDashboard';
+import { isLocalMode } from './supabase';
 
 const App: React.FC = () => {
   return (
@@ -14,9 +15,13 @@ const App: React.FC = () => {
             </div>
             <span className="text-xl font-black tracking-tight text-gray-900">FieldTrack <span className="text-indigo-600">Pro</span></span>
           </div>
-          <div className="bg-emerald-50 border border-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            Live Operations
+          <div className={`border px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 ${
+            isLocalMode 
+              ? 'bg-amber-50 border-amber-100 text-amber-600' 
+              : 'bg-emerald-50 border-emerald-100 text-emerald-600'
+          }`}>
+            <span className={`h-1.5 w-1.5 rounded-full ${isLocalMode ? 'bg-amber-500' : 'bg-emerald-500 animate-pulse'}`} />
+            {isLocalMode ? 'Local Operations' : 'Live Operations'}
           </div>
         </div>
       </header>
